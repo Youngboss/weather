@@ -4,7 +4,7 @@ var submitSearch = function(){
 
     var searchText = $("#weatherSearchText").val()
     var apiKey = "1bad5235f9903fde5bad71da0f4e98a9"
-    var Url = "http://api.openweathermap.org/geo/1.0/direct?q="+searchText+",USA&limit=1&appid="+apiKey
+    var Url = "https://api.openweathermap.org/geo/1.0/direct?q="+searchText+",USA&limit=1&appid="+apiKey
     $.get(Url,null,function(geoData){
         console.log(geoData)
         var cityLon = 0
