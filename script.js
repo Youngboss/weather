@@ -19,7 +19,7 @@ var submitSearch = function(){
         if (cityLat !=0 && cityLon !=0) {
             var Url = "https://api.openweathermap.org/data/2.5/weather?lat="+cityLat+"&lon="+cityLon+"&appid="+apiKey+"&units=imperial"
                 $.get(Url,null,function(weatherData){
-                console.log(weatherData)
+                // console.log(weatherData)
                 $("#weatherDetails").show()
                 $("#cityName").text(weatherData.name)
                 $("#cityTemp").text(weatherData.main.temp)
@@ -27,7 +27,14 @@ var submitSearch = function(){
                 $("#cityHumid").text(weatherData.main.humidity)
                 
                 console.log(weatherData.name)
-               
+                localStorage.setItem('history', weatherData.name)
+               localStorage.getItem('history');
+            var history = weatherData.name
+                    const p = document.createElement("p")
+                    p.innerHTML = (history)
+                    document.getElementById("searchHistory").appendChild(p);
+
+
             })
         }
 
