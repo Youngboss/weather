@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body style="background-color: pink;">
+
+
+ <header class="yb"><H1>Weather Dashboard</H1></header>
+
+<div class="left column" id="leftColumn"> 
+    <form id="weatherSearch" action="" > 
+        <input type="text" id="weatherSearchText" class="" placeholder="City, State" />
+        <button type="submit" id="submitSearch"> Search </button>     
+    </form>
+    <div class="hist" id="searchHistory"> 
+        <ul> <h1>History</h1>
+         </ul>
+    </div>
+ </div>
+
+ <div class="right column" id="rightColumn">
+    
+    <div id="weatherDetails" style="display: none;" >
+        <div><h1> City: <span id="cityName" > </span> </h1> </div> 
+        <div><h2> Temp: <span id="cityTemp"> </span> </h2></div>
+        <div> <h2>Speed: <span id="cityWind"> </span> </h2></div>
+        <div> <h2>Humidity: <span id="cityHumid"> </span> </h2> </div>
+
+    </div>
+    <div id="fiveDayForecast"></div>
+    
+ </div>
+
+ <div class="clear">
+
+ </div>
+
+
+ <script src="jquery-3.6.4.min.js"> </script>
+   <script src="script.js" >  </script>
+</body>
+</html>

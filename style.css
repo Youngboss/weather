@@ -1,0 +1,46 @@
+.yb{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 3% 4%;
+    background-color: rgb(214, 48, 2);
+    color: aliceblue;
+    text-align: center;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.right{
+
+    /* float: right; */
+    padding: 30px;
+    height: auto;
+
+}
+.left{
+    float: left;
+}
+.column{
+    padding: 20px;
+    display: inline-block;
+}
+.clear{
+    clear: both;
+    visibility: hidden;
+}
+.disabled{
+    opacity: 0.5;
+    cursor: default !important
+    ;
+}
+.hist{
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
