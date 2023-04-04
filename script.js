@@ -1,8 +1,16 @@
-
-
-var submitSearch = function(){
-
+var submitSearchBtn = function(){
     var searchText = $("#weatherSearchText").val()
+    submitSearch(searchText)
+}
+
+var searchHistoryBtn = function(thisHistory){
+    var searchText = $(thisHistory).text()
+    submitSearch(searchText)
+}
+
+var submitSearch = function(searchText){
+
+    searchText = searchText.trim().toUpperCase() //chage all text to uppercase and removes spaces
     var apiKey = "1bad5235f9903fde5bad71da0f4e98a9"
     var Url = "https://api.openweathermap.org/geo/1.0/direct?q="+searchText+",USA&limit=1&appid="+apiKey
     $.get(Url,null,function(geoData){
@@ -74,10 +82,12 @@ var showHistory = function(){
     if ( l > 0){
         for(i=0; i<l; i++){  
           let p = document.createElement("p")
+          p.classList.add("historyItem")
             p.innerHTML = (history[i])
             $("#searchHistory").append(p);
 
         }
+        $(".historyItem").on("click", function (){searchHistoryBtn(this)})
     }        
 
 }
@@ -92,7 +102,8 @@ $(document).ready(function(){
     let searchForm= document.getElementById("weatherSearch")
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
-        submitSearch()
+        submitSearchBtn()
+        
     })
     $("#ccHistory").on("click", clearHistory)
 })

@@ -45,3 +45,7 @@ body{
     background-color: white;
     font-size: large;
 }
+
+.historyItem{
+    cursor: pointer;
+}
