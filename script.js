@@ -33,9 +33,21 @@ var submitSearch = function(searchText){
                 $("#cityTemp").text(weatherData.main.temp)
                 $("#cityWind").text(weatherData.wind.speed)
                 $("#cityHumid").text(weatherData.main.humidity)
-                
-                    addHistory(searchText);
-                    showHistory();
+
+                addHistory(searchText);
+                showHistory();
+
+                let cityId = weatherData.id 
+                var Url = "https://api.openweathermap.org/data/2.5/forecast?id="+cityId+"&appid="+apiKey
+                $.get(Url,null,function(forecastData){
+                    // console.log(forecastData);
+                    for (i=0; i < forecastData.list.length; i++){
+                        let forecast = forecastData.list[i]
+                        if (forecast.dt_txt.includes("12:00:00")){
+                            console.log(forecast)
+                        }
+                    }
+                })
 
 
             })
