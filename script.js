@@ -38,13 +38,19 @@ var submitSearch = function(searchText){
                 showHistory();
 
                 let cityId = weatherData.id 
-                var Url = "https://api.openweathermap.org/data/2.5/forecast?id="+cityId+"&appid="+apiKey
+                var Url = "https://api.openweathermap.org/data/2.5/forecast?id="+cityId+"&appid="+apiKey+"&units=imperial"
                 $.get(Url,null,function(forecastData){
                     // console.log(forecastData);
-                    for (i=0; i < forecastData.list.length; i++){
-                        let forecast = forecastData.list[i]
+                    let i = 0
+                    for (k=0; k < forecastData.list.length; k++){
+                        let forecast = forecastData.list[k]
                         if (forecast.dt_txt.includes("12:00:00")){
                             console.log(forecast)
+                            i++
+                            $("#forecast" +i).find(".forecastDate").text(forecast.dt_txt.replace(" 12:00:00", ""))
+                            $("#forecast" +i).find(".forecastTemp").text(forecast.main.temp)
+                            $("#forecast" +i).find(".forecastSpeed").text(forecast.wind.speed)
+                            $("#forecast" +i).find(".forecastHumidity").text(forecast.main.humidity)
                         }
                     }
                 })
