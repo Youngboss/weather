@@ -19,14 +19,14 @@ var submitSearch = function(){
         if (cityLat !=0 && cityLon !=0) {
             var Url = "https://api.openweathermap.org/data/2.5/weather?lat="+cityLat+"&lon="+cityLon+"&appid="+apiKey+"&units=imperial"
                 $.get(Url,null,function(weatherData){
-                // console.log(weatherData)
+                console.log(weatherData)
                 $("#weatherDetails").show()
                 $("#cityName").text(weatherData.name)
                 $("#cityTemp").text(weatherData.main.temp)
                 $("#cityWind").text(weatherData.wind.speed)
                 $("#cityHumid").text(weatherData.main.humidity)
                 
-                    addHistory(weatherData.name);
+                    addHistory(searchText);
                     showHistory();
 
 
@@ -46,7 +46,13 @@ var addHistory = function(searchItem){
     if (oldHistory instanceof Array) history = oldHistory
 
         if (history.includes(searchItem)){
-            
+            for (i = 0; i < history.length; i++){
+                if (history[i]== searchItem){
+                    history.splice(i,1)
+                }
+
+                
+            }
         }
 
          history.unshift(searchItem)
@@ -76,6 +82,10 @@ var showHistory = function(){
 
 }
 
+var clearHistory = function(){
+    localStorage.removeItem("searchHistory")
+    $("#searchHistory").text("")
+}
 
 $(document).ready(function(){
     showHistory()
@@ -84,6 +94,7 @@ $(document).ready(function(){
       e.preventDefault();
         submitSearch()
     })
+    $("#ccHistory").on("click", clearHistory)
 })
 
-// alert("I havent finished but I am working on it ill push the updates as I go along I just need 2 more days super busy but the most important part works :)")
+alert("I havent finished but I am working on it ill push the updates as I go along I just need 2 more days super busy but the most important part works :)")
