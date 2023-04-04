@@ -48,6 +48,11 @@ body{
 
 .historyItem{
     cursor: pointer;
+    display: block;
+    padding: 4px;
+    margin: 6px;
+    width: 200px;
+    text-align: center;
 }
 
 .card{

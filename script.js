@@ -99,7 +99,7 @@ var showHistory = function(){
     let l = history.length
     if ( l > 0){
         for(i=0; i<l; i++){  
-          let p = document.createElement("p")
+          let p = document.createElement("button")
           p.classList.add("historyItem")
             p.innerHTML = (history[i])
             $("#searchHistory").append(p);
